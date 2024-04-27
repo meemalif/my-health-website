@@ -1,12 +1,20 @@
+'use client'
 import { auth } from '@/firebase';
-import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import SignInForm from './signinForm';
 
 export default async function Login() {
-  const currentUser = auth.currentUser
-  if (currentUser?.uid?.length>0) {
-    console.log(currentUser.uid);
-    redirect('/');
-  }
+  const router = useRouter()
+  useEffect(() => {
+    auth.onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        router.push('/')
+      } else {
+        console.log(user.displayName)
+      }
+    });
+  }, []);
   return <SignInForm />;
 }

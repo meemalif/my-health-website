@@ -1,6 +1,4 @@
 "use client";
-// import categories from "@/app/category/categories";
-// import { Button } from "@chakra-ui/react";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -17,28 +15,39 @@ function NavbarComponent({ data, userData }) {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img
-            src="assets/img/logo/Studio-Project.png"
+            src="/logo.png"
             className="h-8"
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            FlexiEra
+            My health App
           </span>
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* <NavbarActions /> */}
-          <Link href={data?.user ? "/account" : "/login"}>
-            <img
-              className="w-8 h-8 rounded-xl"
-              src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
-            //   src={
-            //     userData[0]?.profile_image
-            //       ? userData[0]?.profile_image
-            //       : "assets/img/logo/man.png"
-            //   }
-              alt="line"
-            />
-          </Link>
+        
+
+          <Link href={data ? "/account" : "/sign-in"}>
+      {data ? (
+        userData?.profile ? ( // Fixed typo: 'lenght' should be 'length'
+          <img
+            className="w-8 h-8 rounded-xl"
+            src={userData.profile}
+            alt="Profile"
+          />
+        ) : (
+          <button className="text-white w-8 h-8 text-2xl bg-green-600 rounded-full justify-center items-center flex">
+            {data?.email?.slice(0, 1).toUpperCase()}
+          </button>
+        )
+      ) : (
+        <img
+          className="w-8 h-8 rounded-xl"
+          src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+          alt="Default Avatar"
+        />
+      )}
+    </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
             data-collapse-toggle="navbar-sticky"
@@ -57,8 +66,8 @@ function NavbarComponent({ data, userData }) {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
@@ -118,32 +127,6 @@ function NavbarComponent({ data, userData }) {
             : "hidden"
         }
       >
-        {/* <div className="grid grid-cols-3 max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
-          <ul>
-            {categories.slice(0, 6).map((category) => (
-              <li key={category.id}>
-                <Link
-                  href={`/category/${category.value}`}
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">{category.name}</div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ul>
-            {categories.slice(6, 12).map((category) => (
-              <li key={category.id}>
-                <Link
-                  href={`/category/${category.value}`}
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">{category.name}</div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div> */}
       </div>
     </nav>
   );
