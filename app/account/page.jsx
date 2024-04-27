@@ -106,10 +106,15 @@ function EditAccountScreen() {
   };
   return (
     <div className="p-5 mt-6 lg:mx-56 md:mx-36 mx-10">
-      <div className="items-center justify-center">
-      <img  className="w-32 h-32 overflow-hidden rounded-full " src={user.profile? user.profile : "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"}/>
-      <h1 className="text-2xl font-bold text-center mt-4">Hello back, {user.name}</h1>
-      </div>
+   <div className="flex flex-col items-center justify-center">
+  <img
+    className="w-32 h-32 rounded-full"
+    src={user.profile ? user.profile : "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"}
+    alt="User Profile"
+  />
+  <h1 className="text-2xl font-bold text-center mt-4">Hello back, {user.name}</h1>
+</div>
+
 <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
 <label className="block mb-2 text-sm font-medium text-gray-200" htmlFor="profilePicture">
           Upload file
@@ -172,13 +177,14 @@ function EditAccountScreen() {
   </div>
     <button type="submit" className="bg-blue-500 text-white p-2 rounded mt-4" >Submit</button>
 </form>
-
+    <div className="flex flex-col items-center justify-center">
       <button className="border border-blue-500 text-blue-500 p-2 rounded mt-4 mx-5" onClick={() => router.push('/RegisterDoctor')}>
         Register as a Doctor
       </button>
       <button className="border border-red-500 text-red-500 p-2 rounded mt-4" onClick={handleDelete}>
         Delete account
       </button>
+      </div>
     </div>
   );
 }
