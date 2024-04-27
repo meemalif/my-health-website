@@ -4,6 +4,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPills, faSyringe, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { auth, firestore } from "@/firebase";
+import { useRouter } from "next/navigation";
 
 // A single task item component
 const TaskItem = ({ iconName, color, title, reminder }) => (
@@ -17,6 +18,7 @@ const TaskItem = ({ iconName, color, title, reminder }) => (
 );
 
 const DailyReminderCard = ({ navigate }) => {
+    const router = useRouter()
   const [medication, setMedication] = useState([]);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ const DailyReminderCard = ({ navigate }) => {
       ))}
       <button
         className="mx-auto my-2.5 px-4 py-2.5 border border-transparent rounded-lg shadow text-white bg-blue-500 hover:bg-blue-700"
-        onClick={navigate}
+        onClick={()=>router.push('/dashboard/add-medication')}
       >
         <FontAwesomeIcon icon={faPlusCircle} className="mr-2" /> Add Measurement
       </button>
