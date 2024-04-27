@@ -1,14 +1,21 @@
 "use client";
+// import categories from "@/app/category/categories";
+// import { Button } from "@chakra-ui/react";
+
 import Link from "next/link";
 import React, { useState } from "react";
 
 function NavbarComponent({ data, userData }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
           <img
             src="assets/img/logo/Studio-Project.png"
             className="h-8"
@@ -17,13 +24,18 @@ function NavbarComponent({ data, userData }) {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             FlexiEra
           </span>
-        </a>
+        </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* <NavbarActions /> */}
           <Link href={data?.user ? "/account" : "/login"}>
             <img
               className="w-8 h-8 rounded-xl"
-              src={"https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"}
+              src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+            //   src={
+            //     userData[0]?.profile_image
+            //       ? userData[0]?.profile_image
+            //       : "assets/img/logo/man.png"
+            //   }
               alt="line"
             />
           </Link>
@@ -47,7 +59,7 @@ function NavbarComponent({ data, userData }) {
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
@@ -78,12 +90,14 @@ function NavbarComponent({ data, userData }) {
               </a>
             </li>
             <li>
-              <a
-                href="/category"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Categories
-              </a>
+              <button onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
+                <a
+                  // href="/category"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Categories
+                </a>
+              </button>
             </li>
             <li>
               <a
@@ -95,6 +109,41 @@ function NavbarComponent({ data, userData }) {
             </li>
           </ul>
         </div>
+      </div>
+      <div
+        id="mega-menu-full-dropdown"
+        className={
+          isCategoryOpen
+            ? "mt-1 border-gray-200 shadow-sm bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600"
+            : "hidden"
+        }
+      >
+        {/* <div className="grid grid-cols-3 max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
+          <ul>
+            {categories.slice(0, 6).map((category) => (
+              <li key={category.id}>
+                <Link
+                  href={`/category/${category.value}`}
+                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <div className="font-semibold">{category.name}</div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {categories.slice(6, 12).map((category) => (
+              <li key={category.id}>
+                <Link
+                  href={`/category/${category.value}`}
+                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <div className="font-semibold">{category.name}</div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div> */}
       </div>
     </nav>
   );
