@@ -25,7 +25,7 @@ function Navbar() {
             getDocs(userQuery)
               .then(snapshot => {
                 if (!snapshot.empty) {
-                  console.log("Checking user data:", snapshot.docs[0].data());
+                //   console.log("Checking user data:", snapshot.docs[0].data());
                   setUserData({
                     ...snapshot.docs[0].data(),
                     id: snapshot.docs[0].id
