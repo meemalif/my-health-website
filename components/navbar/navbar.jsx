@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import NavbarComponent from './navbarComponent';
 // Assuming you have a Firebase config file where Firebase is initialized
-import { auth } from '@/firebase';
+import { auth } from '../../firebase';
 import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
 function Navbar() {

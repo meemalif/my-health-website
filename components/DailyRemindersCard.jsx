@@ -3,7 +3,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 // import { auth, firestore } from "../../firebase"; // Adjust the path as necessary
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPills, faSyringe, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { auth, firestore } from "@/firebase";
+import { auth, firestore } from "../firebase";
 import { useRouter } from "next/navigation";
 
 // A single task item component

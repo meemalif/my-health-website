@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
-import { auth, firestore } from "@/firebase";
-// import { auth, firestore } from "../../firebase"; // Adjust the path as necessary
+import { auth, firestore } from "../firebase";
 
 
 const TestRecordsCard = () => {

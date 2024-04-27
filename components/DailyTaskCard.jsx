@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { collection, query, where, getDocs, orderBy, Timestamp } from "firebase/firestore";
-// import { auth, firestore } from "../../firebase"; // Adjust the path as necessary
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy, faCheckCircle, faPills, faHeartPulse, faHeart, faAppleAlt } from '@fortawesome/free-solid-svg-icons';
-import { auth, firestore, } from "@/firebase";
+import { auth, firestore, } from "../firebase";
 
 // Task item component with Tailwind CSS
 const TaskItem = ({ iconName, color, title, progress }) => (
