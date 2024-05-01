@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { query, collection, where, getDoc, getDocs, doc } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faContactCard, faStar, faStarHalfAlt,   } from "@fortawesome/free-solid-svg-icons";
-import { firestore } from "@/firebase";
-import Card from "@/components/Card";
-import BlogCard from "@/components/blogCard";
+import { firestore } from "../../../firebase";
+import Card from "../../../components/Card";
+import BlogCard from "../../../components/blogCard";
 
 const DoctorProfile = ({ params }) => {
   const doctorId = params.doctorId
