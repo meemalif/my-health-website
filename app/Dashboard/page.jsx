@@ -120,7 +120,7 @@ function Dashboard() {
             status="High"     
             />
 </div>
-<div className='flex ;g:flex-row space-x-3'>
+<div className='flex lg:flex-row space-x-3'>
 <DailyTasksCard />
 <button onClick={()=>router.push("/dashboard/add-measurement")} className='bg-slate-900 rounded-xl w-1/3 space-y-4'>
     <FontAwesomeIcon icon={faPlusCircle} color='white' size='3x'/>
