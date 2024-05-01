@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import Link from 'next/link';
-import { auth } from '@/firebase';
+import { auth } from '../../firebase';
 
 
 function SignInForm() {

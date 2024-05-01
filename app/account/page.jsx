@@ -15,7 +15,7 @@ function EditAccountScreen() {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (!user) {
         // No user is signed in, redirect to login page
-        router.push("/login");
+        router.push("/sign-in");
       } else {
         console.log("Logged in user email:", user.email);
         try {
@@ -99,7 +99,7 @@ function EditAccountScreen() {
       await deleteDoc(doc(firestore, "users", userId));
       const user = auth.currentUser;
       await user.delete();
-      router.push('/login');
+      router.push('/sign-in');
     } catch (error) {
       console.error("Error deleting user:", error);
     }
