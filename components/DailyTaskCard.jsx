@@ -98,7 +98,7 @@ const DailyTasksCard = () => {
   return (
     <div className="bg-green-600 p-2.5 rounded-lg shadow-md mb-2.5 flex flex-col items-center">
       <h2 className="text-xl font-bold mb-4">Daily Tasks</h2>
-      <div className="flex justify-evenly w-full mb-7.5">
+      <div className="flex justify-evenly w-full mb-7.5 space-x-2">
         <TaskGoals
           iconName={faTrophy}
           color="yellow"
@@ -111,15 +111,7 @@ const DailyTasksCard = () => {
           title="Measurements"
           progress={`${todaysBloodPressureReadings.length + todaysBloodSugarReadings.length}`}
         />
-      </div>
-      <div className="flex flex-wrap space-x-3">
-      <TaskItem
-        iconName={faPills}
-        color="blue"
-        title="Losartan"
-        progress="1/2 Intakes"
-      />
-      <TaskItem
+         <TaskItem
         iconName={faHeartPulse}
         color="red"
         title="Blood Pressure"
@@ -131,6 +123,15 @@ const DailyTasksCard = () => {
         title="Blood Sugar"
         progress={`${todaysBloodSugarReadings.length}/2 measurements`}
       />
+      </div>
+      <div className="flex flex-wrap space-x-3">
+      <TaskItem
+        iconName={faPills}
+        color="blue"
+        title="Losartan"
+        progress="1/2 Intakes"
+      />
+     
       <TaskItem
         iconName={faAppleAlt}
         color="green"
