@@ -76,7 +76,7 @@ export default function SearchScreen() {
       </div>
       <div className="grid lg:grid-cols-3 grid-cols-2">
       {selectedDoctor.map((doctor, index) => (
-        <Link href={`/doctors/${doctor.id}`}>
+        <Link key={index} href={`/doctors/${doctor.id}`}>
         <DoctorCard key={index} doctor={doctor} />
         </Link>
       ))}
