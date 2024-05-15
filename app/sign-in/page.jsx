@@ -12,7 +12,7 @@ export default async function Login() {
         // User is signed in.
         router.push('/')
       } else {
-        console.log(user.displayName)
+        console.log(user?.displayName)
       }
     });
   }, []);
