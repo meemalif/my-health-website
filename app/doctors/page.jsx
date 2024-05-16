@@ -74,8 +74,9 @@ export default function SearchScreen() {
           Hypertension
         </button>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-2">
+      <div className="grid lg:grid-cols-3 grid-cols-2 space-x-2">
       {selectedDoctor.map((doctor, index) => (
+      
         <Link key={index} href={`/doctors/${doctor.id}`}>
         <DoctorCard key={index} doctor={doctor} />
         </Link>

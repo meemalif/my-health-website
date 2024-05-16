@@ -26,7 +26,7 @@ const DayMealCard = ({ title, data }) => {
 
 
 const DietPlanCard = ({diagnose}) => {
-  const data = diagnose === "hypertension" ? hypertensionMealPlan : diabetesMealPlan;
+  const data = diagnose?.toLowerCase() === "hypertension" ? hypertensionMealPlan : diabetesMealPlan;
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <h2 className="text-xl font-bold text-center text-green-600 mb-4">Diet Plan</h2>

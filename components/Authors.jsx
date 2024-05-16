@@ -7,26 +7,9 @@ import AuthorCard from "./AuthorCard";
 
 
 export default function Authors() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [value, setValue] = useState("diabetes");
   const [doctors, setDoctors] = useState([]);
   const [filterDoctors, setFilteredDoctors] = useState([]);
 
-  useEffect(() => {
-    const filterData = () => {
-      if (searchQuery.length > 0) {
-        const filteredData = doctors.filter(
-          (user) =>
-            user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            user.speciality.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredDoctors(filteredData);
-      } else {
-        setFilteredDoctors(doctors);
-      }
-    };
-    filterData();
-  }, [searchQuery, doctors]);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -46,15 +29,12 @@ export default function Authors() {
     fetchDoctors();
   }, []);
 
-  const selectedDoctor = filterDoctors.filter(
-    (doc) => doc.speciality === value
-  );
 
   return (
     <div className="flex mt-5 mx-8">
 
-      <div className="flex lg:grid-cols-3 grid-cols-2">
-      {selectedDoctor.map((doctor, index) => (
+      <div className="grid lg:grid-cols-3 space-x-2 grid-cols-2">
+      {doctors.map((doctor, index) => (
         <Link key={index} href={`/doctors/${doctor.id}`}>
             <AuthorCard doctor={doctor}/>
         </Link>

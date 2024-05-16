@@ -11,8 +11,8 @@ function AuthorCard({doctor }) {
     <img className="h-56 rounded-lg object-cover md:w-56" src={doctor.profileImage} alt="" />
   </div>
   <div className="">
-    <p className="text-xl font-medium text-gray-700">{doctor.name}</p>
-    <p className="mb-4 text-sm font-medium text-gray-500"> {doctor.gender}</p> 
+    <p className="text-xl font-medium text-gray-400">{doctor.name}</p>
+    <p className="mb-4 text-sm font-medium text-gray-400"> {doctor.gender}</p> 
     <div className="flex space-x-2">
       <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
         <p className="text-sm font-medium text-gray-500">Rating</p>
