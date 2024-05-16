@@ -1,10 +1,54 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-// import { signup } from '@/utils/actions';
-// import Button from '@/components/ui/button';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { collection, addDoc } from 'firebase/firestore';
+import { useRouter } from 'next/navigation';
+import { auth, firestore } from '../../firebase';
+
+
 
 function SignUpForm() {
+  const router = useRouter()
+  const handleRegister = async (formData) => {
+    const values = {
+      email: formData.get('email') ,
+      password: formData.get('password'),
+      fullname: formData.get('name'),
+    }
+    console.log(values)
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then(async (userCredentials) => {
+        const user = userCredentials.user;
+        
+
+        sendEmailVerification(user)
+          .then(() => {
+            alert(
+              "Verification Email sent",
+              "Make sure to check your spam mails"
+            );
+          })
+          .catch((error) => {
+            alert("Error sending verification email: ", error);
+          });
+
+        const collectionRef = collection(firestore, "users");
+        const docRef = await addDoc(collectionRef, {
+          name: values.fullname,
+          email: values.email,
+          userID: user.uid,
+          createdAt: new Date(),
+        });
+        // ("Document written with ID: ", docRef.id);
+        alert("Congrats", "You have been registered to Health Harbor!");
+        router.push("/")
+      })
+      .catch((error) => alert(error));
+    return;
+  };
+  
+
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -12,12 +56,12 @@ function SignUpForm() {
           href="#"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          {/* <img
+          <img
             className=" h-12 rounded-full mr-2"
-            src="https://kary.pk/cdn/shop/files/logo_300x300_1.png"
+            src="/logo.png"
             alt="logo"
-          /> */}
-          My Health App
+          />
+          Health Harbor
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -101,7 +145,7 @@ function SignUpForm() {
               </div>
               {/* Submission button */}
               <div className="flex items-center justify-center">
-                <button type="submit" formAction={(e)=>console.log(e)}>
+                <button type="submit" formAction={handleRegister}>
                   Sign Up
                 </button>
               </div>

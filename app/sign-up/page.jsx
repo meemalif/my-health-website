@@ -1,8 +1,8 @@
 'use client'
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { auth } from '@/firebase';
-import SignUpForm from './SignUpForm';
+import { auth } from '../../firebase';
+import SignUpForm from './signupForm';
 
 export default function Login() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function Login() {
         // User is signed in.
         router.push('/')
       } else {
-        console.log(user.displayName)
+        console.log(user?.displayName)
       }
     });
   }, []);

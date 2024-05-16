@@ -1,4 +1,5 @@
 import React from "react";
+import {diabetesMealPlan, hypertensionMealPlan} from "../config/meal-plan";
 
 const MealCard = ({ meal, description }) => {
   return (
@@ -22,86 +23,10 @@ const DayMealCard = ({ title, data }) => {
   );
 };
 
-const data = [
-    {
-      title: "MONDAY",
-      data: [
-        {
-          meal: "Breakfast",
-          description: "steel cut oats with walnuts and fresh berries",
-        },
-        { meal: "Lunch", description: "salmon salad with cannellini beans" },
-        {
-          meal: "Dinner",
-          description:
-            "roasted chicken thighs with potatoes and scallions with herb vinaigrette.",
-        },
-      ],
-    },
-    {
-      title: "TUESDAY",
-      data: [
-        {
-          meal: "Breakfast",
-          description: "steel cut oats with walnuts and fresh berries",
-        },
-        { meal: "Lunch", description: "salmon salad with cannellini beans" },
-        {
-          meal: "Dinner",
-          description:
-            "roasted chicken thighs with potatoes and scallions with herb vinaigrette.",
-        },
-      ],
-    },
-    {
-      title: "WEDNESDAY",
-      data: [
-        {
-          meal: "Breakfast",
-          description: "steel cut oats with walnuts and fresh berries",
-        },
-        { meal: "Lunch", description: "salmon salad with cannellini beans" },
-        {
-          meal: "Dinner",
-          description:
-            "roasted chicken thighs with potatoes and scallions with herb vinaigrette.",
-        },
-      ],
-    },
-    {
-      title: "THURSDAY",
-      data: [
-        {
-          meal: "Breakfast",
-          description: "steel cut oats with walnuts and fresh berries",
-        },
-        { meal: "Lunch", description: "salmon salad with cannellini beans" },
-        {
-          meal: "Dinner",
-          description:
-            "roasted chicken thighs with potatoes and scallions with herb vinaigrette.",
-        },
-      ],
-    },
-    {
-      title: "FRIDAY",
-      data: [
-        {
-          meal: "Breakfast",
-          description: "steel cut oats with walnuts and fresh berries",
-        },
-        { meal: "Lunch", description: "salmon salad with cannellini beans" },
-        {
-          meal: "Dinner",
-          description:
-            "roasted chicken thighs with potatoes and scallions with herb vinaigrette.",
-        },
-      ],
-    },
-    // ... Add other days
-  ];
 
-const DietPlanCard = () => {
+
+const DietPlanCard = ({diagnose}) => {
+  const data = diagnose === "hypertension" ? hypertensionMealPlan : diabetesMealPlan;
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <h2 className="text-xl font-bold text-center text-green-600 mb-4">Diet Plan</h2>

@@ -29,6 +29,7 @@ function Dashboard() {
     const [bloodPressure, setBloodPressure] = useState([0, 0]);
     const [bloodSugar, setBloodSugar] = useState(0);
     const [loading, setLoading] = useState(false);
+    const [diagnose, setDiagnose ] = useState('Diabetes')
 
     const db = getFirestore(); // Initialize Firestore
 
@@ -45,6 +46,7 @@ function Dashboard() {
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const userDoc = querySnapshot.docs[0]; // Assuming 'userID' is unique and only one doc will be returned
+          setDiagnose(userDoc.data()?.diagnose || "Diabetes")
           const bloodPressureRef = collection(
             db,
             "users",
@@ -120,7 +122,7 @@ function Dashboard() {
             status="High"     
             />
 </div>
-<div className='flex lg:flex-row space-x-3'>
+<div className='flex lg:flex-row  space-x-3'>
 <DailyTasksCard />
 <button onClick={()=>router.push("/dashboard/add-measurement")} className='bg-slate-900 rounded-xl w-1/3 space-y-4'>
     <FontAwesomeIcon icon={faPlusCircle} color='white' size='3x'/>
@@ -135,7 +137,7 @@ function Dashboard() {
     <DailyReminderCard />
     <DailyExerciseCard />
     </div>
-    <DietPlanCard />
+    <DietPlanCard diagnose={diagnose}/>
 </div>
 
     </div>
