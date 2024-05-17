@@ -6,7 +6,7 @@ function BlogCard({blogImage, articleTitle, date, authorImage, authorName, descr
 
 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
-        <img className="rounded-t-lg w-40 items-center" src={blogImage} alt=""  />
+        <img className="rounded-t-lg items-center" src={blogImage} alt=""  />
     </a>
     <a href={`/doctors/${doctorId}`} className='flex flex-row justify-start pt-5 px-5 items-center'>
        {authorImage && ( <img width={20} height={20} className='rounded-full' src={authorImage} alt="" />)}

@@ -69,11 +69,11 @@ export default function BlogScreen({ navigate }) {
   }, []);
 
   return (
-    <div className="h-full p-2 overflow-auto lg:mx-56 mx-10">
-      <h2 className="text-lg font-bold text-gray-700 m-2">
+    <div className="h-full p-2 overflow-auto lg:mx-48 mx-10">
+      <h2 className="text-lg font-bold text-gray-400 m-2">
         Blogs and Articles
       </h2>
-      <div className="grid lg:grid-cols-4 grid-cols-2">
+      <div className="grid lg:grid-cols-3 grid-cols-2 space-x-2 space-y-2">
         {blogs.map((blog, index)=>(
           <BlogCard key={blog.id} articleTitle={blog.title}
           doctorId={blog.doctor.id}
