@@ -32,7 +32,7 @@ const BlogComponent = ({ params }) => {
   }, [blogID]);
 
   if (!blog) {
-    return <div>Loading...</div>;
+    return <div className="lg:mx-48 bg-white px-10 rounded-lg">Loading...</div>;
   }
 
   return (

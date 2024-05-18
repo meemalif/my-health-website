@@ -2,7 +2,7 @@
 import * as tf from "@tensorflow/tfjs";
 import { useEffect, useState } from "react";
 
-function MyComponent() {
+function AIpage() {
   const [model, setModel] = useState(null);
   const [formData, setFormData] = useState({
     gender: "",
@@ -177,7 +177,7 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default AIpage;
 
 function encodeGender(gender) {
   return gender === "Male" ? 1 : 0;
