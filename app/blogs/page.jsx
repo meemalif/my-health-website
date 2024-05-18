@@ -69,7 +69,7 @@ export default function BlogScreen({ navigate }) {
   }, []);
 
   return (
-    <div className="h-full p-2 overflow-auto lg:mx-48 mx-10">
+    <div className="h-full p-2 overflow-auto lg:mx-48 mx-5">
       <h2 className="text-lg font-bold text-gray-400 m-2">
         Blogs and Articles
       </h2>
