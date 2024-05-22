@@ -34,7 +34,7 @@ const DailyTasksCard = () => {
       const startOfTodayTimestamp = Timestamp.fromDate(startOfToday);
       console.log(startOfTodayTimestamp);
       console.log(startOfToday);
-      const uid = auth.currentUser.uid;
+      const uid = auth.currentUser?.uid;
       const userQuery = query(
         collection(firestore, "users"),
         where("userID", "==", uid)
