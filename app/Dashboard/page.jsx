@@ -15,7 +15,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { auth, firestore } from '../../firebase';
 import { useRouter } from 'next/navigation';
-import WelcomeCard from '../../components/WelcomeCard';
+import WelcomeCard from '../../components/welcomeCard';
 import MeasurementCard from '../../components/MeasurementCard';
 import DailyTasksCard from '../../components/DailyTaskCard';
 import TestRecordsCard from '../../components/TestRecordCards';
