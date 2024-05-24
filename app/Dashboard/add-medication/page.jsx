@@ -1,13 +1,12 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { addDoc, collection, getDocs, where, query } from "firebase/firestore";
-import { auth, firestore } from "../../firebase";
+import { auth, firestore } from "../../../firebase";
 import { useRouter } from "next/navigation";
 // import { auth, firestore } from "../../../firebase"; // Adjust path as needed
 
-
 const AddMedicationMeasurement = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [medicationName, setMedicationName] = useState("");
   const [dosage, setDosage] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -39,8 +38,7 @@ const AddMedicationMeasurement = () => {
           createdAt: new Date(),
         });
         alert("Medication Measurement added successfully");
-        router.back()
-        
+        router.back();
       } else {
         console.log("No documents found");
       }
