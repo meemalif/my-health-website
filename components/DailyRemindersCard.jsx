@@ -11,8 +11,8 @@ const TaskItem = ({ iconName, color, title, reminder }) => (
   <div className="flex items-center mb-2.5 p-2.5 bg-gray-600 rounded-lg shadow">
     <FontAwesomeIcon icon={iconName} color={color} className={` text-2xl mr-2.5`} />
     <div className="ml-2.5">
-      <p className="font-bold">{title}</p>
-      <p>{reminder}</p>
+      <p className="font-bold text-white">{title}</p>
+      <p className="text-white">{reminder}</p>
     </div>
   </div>
 );

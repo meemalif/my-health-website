@@ -178,7 +178,7 @@ function EditAccountScreen() {
     <button type="submit" className="bg-blue-500 text-white p-2 rounded mt-4" >Submit</button>
 </form>
     <div className="flex flex-col items-center justify-center">
-      <button className="border border-blue-500 text-blue-500 p-2 rounded mt-4 mx-5" onClick={() => router.push('/RegisterDoctor')}>
+      <button className="border border-blue-500 text-blue-500 p-2 rounded mt-4 mx-5" onClick={() => router.push('/registerDoctor')}>
         Register as a Doctor
       </button>
       <button className="border border-red-500 text-red-500 p-2 rounded mt-4" onClick={handleDelete}>

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import { addDoc, collection, getDocs, where, query } from "firebase/firestore";
-import { auth, firestore } from "../../../firebase";
+import { auth, firestore } from "../../firebase";
 import { useRouter } from "next/navigation";
 // import { auth, firestore } from "../../../firebase"; // Adjust path as needed
 
