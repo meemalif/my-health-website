@@ -40,9 +40,9 @@ function Dashboard() {
                 const uid = user.uid // Use optional chaining in case currentUser is null
       console.log("------->",uid)
       setLoading(true); 
-      const q = query(collection(db, "users"), where("userID", "==", uid));
-  
+      
       try {
+        const q = query(collection(firestore, "users"), where("userID", "==", uid));
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const userDoc = querySnapshot.docs[0]; // Assuming 'userID' is unique and only one doc will be returned
