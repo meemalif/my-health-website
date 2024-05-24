@@ -1,6 +1,13 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
-import { collection, query, where, getDoc, getDocs, doc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDoc,
+  getDocs,
+  doc,
+} from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,12 +15,10 @@ import { auth, firestore } from "../../firebase";
 import BlogCard from "../../components/blogCard";
 import { useRouter } from "next/navigation";
 
-
-export default function BlogScreen({ navigate }) {
+export default function BlogScreen() {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
   const [doctor, setDoctor] = useState({});
-  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     // Setup an observer on the Auth object to detect user state changes
@@ -59,7 +64,7 @@ export default function BlogScreen({ navigate }) {
 
       // Resolve all promises from the map
       const resolvedBlogs = await Promise.all(blogPromises);
-      const filteredBlogs = resolvedBlogs.filter(blog => blog !== null);
+      const filteredBlogs = resolvedBlogs.filter((blog) => blog !== null);
       setBlogs(filteredBlogs);
     };
 
@@ -74,13 +79,19 @@ export default function BlogScreen({ navigate }) {
         Blogs and Articles
       </h2>
       <div className="grid lg:grid-cols-3 grid-cols-2 space-x-2 space-y-2">
-        {blogs.map((blog, index)=>(
-          <BlogCard key={blog.id} articleTitle={blog.title}
-          doctorId={blog.doctor.id}
-          blogId={blog.id}
-           date={new Date(blog.createdAt.seconds * 1000).toDateString()} blogImage={blog.imageURL[0]} description={blog.description} authorImage={blog.doctor.profileImage} authorName={blog.doctor.name}/>
+        {blogs.map((blog, index) => (
+          <BlogCard
+            key={blog.id}
+            articleTitle={blog.title}
+            doctorId={blog.doctor.id}
+            blogId={blog.id}
+            date={new Date(blog.createdAt.seconds * 1000).toDateString()}
+            blogImage={blog.imageURL[0]}
+            description={blog.description}
+            authorImage={blog.doctor.profileImage}
+            authorName={blog.doctor.name}
+          />
         ))}
-      
       </div>
       {doctor.id && (
         <button

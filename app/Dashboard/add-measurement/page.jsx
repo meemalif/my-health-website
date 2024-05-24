@@ -5,7 +5,7 @@ import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { auth, firestore } from "../../../firebase";
 import { useRouter } from "next/navigation";
 
-const AddMeasurement = ({ navigate }) => {
+const AddMeasurement = () => {
   const router = useRouter()
   const [selectedTest, setSelectedTest] = useState("bloodPressure");
   const [bloodPressure, setBloodPressure] = useState({ systolic: '', diastolic: '' });

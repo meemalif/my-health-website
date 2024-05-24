@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 // import { auth, firestore } from "../../../firebase"; // Adjust path as needed
 
 
-const AddMedicationMeasurement = ({ navigate }) => {
+const AddMedicationMeasurement = () => {
   const router = useRouter()
   const [medicationName, setMedicationName] = useState("");
   const [dosage, setDosage] = useState("");
