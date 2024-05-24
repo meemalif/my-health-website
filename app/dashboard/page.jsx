@@ -31,10 +31,8 @@ function Dashboard() {
   const [diagnose, setDiagnose] = useState("Diabetes");
 
   // const db = getFirestore(); // Initialize Firestore
-  console.log("Dashboard");
 
   useEffect(() => {
-    console.log("sdjh");
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         const uid = user.uid; // Use optional chaining in case currentUser is null
